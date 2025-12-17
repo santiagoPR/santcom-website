@@ -164,8 +164,7 @@ function initLanguageSwitcher() {
     const translations = {
         en: {
             solutions: 'Solutions',
-            vision: 'Vision', 
-            programs: 'Programs',
+            vision: 'Vision',
             blog: 'Blog',
             login: 'Log In',
             getStarted: 'Get Started',
@@ -178,6 +177,22 @@ function initLanguageSwitcher() {
             followUs: 'Follow Us On:',
             heroTitle: 'Custom Built Machine Learning Models for Predictive Analytics',
             heroSubtitle: 'Use Data to Get a 360-Degree View of Your Business',
+            // Overlay section
+            overlayTitle: 'Empower Your Business with Advanced Predictive Analytics',
+            overlayText: 'Santcom is dedicated to revolutionizing the construction industry through advanced predictive analytics. We specialize in developing custom Machine Learning models that offer early warnings for budget overruns and schedule delays.',
+            // Feature cards
+            featureTitle1: 'Innovative Solutions for Data-driven Construction',
+            featureText1: 'With Santcom, experience the modernization of analytics tailored to the construction sector.',
+            featureTitle2: 'Tailored Machine Learning Applications',
+            featureText2: 'At Santcom, our versatility lies in creating tailored Machine Learning applications that cater to the unique needs of construction businesses.',
+            featureTitle3: 'Data Science Expertise for Construction Projects',
+            featureText3: 'Santcom offers unparalleled data science expertise for construction projects, empowering companies with the tools and insights necessary to streamline operations.',
+            featureTitle4: 'Comprehensive Customer Experience Support',
+            featureText4: 'We offer comprehensive support to enhance the customer experience in the construction industry, leveraging data and analytics to drive customer satisfaction.',
+            // Transform section
+            transformTitle: 'Transform Your Construction Business with Santcom',
+            transformText: 'Santcom brings unprecedented velocity and impeccable reliability to your construction business. Our tailored services, driven by advanced Machine Learning models, ensure that you stay ahead in the competitive construction landscape.',
+            // Stats section
             statsTitle: 'The Construction Industry Challenge',
             stat1: 'Projects Over Budget',
             stat2: 'Projects Behind Schedule',
@@ -185,13 +200,16 @@ function initLanguageSwitcher() {
             stat4: 'Annual Industry Losses',
             stat5: 'Cost Reduction Potential',
             partnersTitle: 'Our Collaborative Partnerships',
+            // Video section
+            videoTitle: 'Empower Your Construction Business with Santcom',
+            videoText: 'Experience the transformative power of advanced predictive analytics and Machine Learning for your construction business. Get in touch with us to explore how Santcom can accelerate your projects and optimize your operations.',
+            // CTA section
             ctaTitle: 'Ready to Build Smarter?',
             ctaDesc: 'Join the future of construction. Our AI-powered analytics platform helps you predict risks before they become problems, saving time, money, and resources on every project.'
         },
         es: {
             solutions: 'Soluciones',
             vision: 'Vision',
-            programs: 'Programas', 
             blog: 'Blog',
             login: 'Iniciar Sesion',
             getStarted: 'Comenzar',
@@ -204,6 +222,22 @@ function initLanguageSwitcher() {
             followUs: 'Siganos En:',
             heroTitle: 'Modelos de Machine Learning Personalizados para Analisis Predictivo',
             heroSubtitle: 'Use Datos para Obtener una Vision 360 de su Negocio',
+            // Overlay section
+            overlayTitle: 'Potencie su Negocio con Analisis Predictivo Avanzado',
+            overlayText: 'Santcom se dedica a revolucionar la industria de la construccion a traves del analisis predictivo avanzado. Nos especializamos en desarrollar modelos de Machine Learning personalizados que ofrecen alertas tempranas para sobrecostos y retrasos en cronogramas.',
+            // Feature cards
+            featureTitle1: 'Soluciones Innovadoras para Construccion Basada en Datos',
+            featureText1: 'Con Santcom, experimente la modernizacion de la analitica adaptada al sector de la construccion.',
+            featureTitle2: 'Aplicaciones de Machine Learning a Medida',
+            featureText2: 'En Santcom, nuestra versatilidad radica en crear aplicaciones de Machine Learning adaptadas a las necesidades unicas de las empresas de construccion.',
+            featureTitle3: 'Experiencia en Ciencia de Datos para Proyectos de Construccion',
+            featureText3: 'Santcom ofrece experiencia inigualable en ciencia de datos para proyectos de construccion, empoderando a las empresas con las herramientas y conocimientos necesarios para optimizar operaciones.',
+            featureTitle4: 'Soporte Integral de Experiencia al Cliente',
+            featureText4: 'Ofrecemos soporte integral para mejorar la experiencia del cliente en la industria de la construccion, aprovechando datos y analitica para impulsar la satisfaccion del cliente.',
+            // Transform section
+            transformTitle: 'Transforme su Negocio de Construccion con Santcom',
+            transformText: 'Santcom aporta velocidad sin precedentes y confiabilidad impecable a su negocio de construccion. Nuestros servicios personalizados, impulsados por modelos avanzados de Machine Learning, aseguran que se mantenga a la vanguardia en el competitivo panorama de la construccion.',
+            // Stats section
             statsTitle: 'El Desafio de la Industria de la Construccion',
             stat1: 'Proyectos Sobre Presupuesto',
             stat2: 'Proyectos con Retraso',
@@ -211,6 +245,10 @@ function initLanguageSwitcher() {
             stat4: 'Perdidas Anuales de la Industria',
             stat5: 'Potencial de Reduccion de Costos',
             partnersTitle: 'Nuestras Alianzas Colaborativas',
+            // Video section
+            videoTitle: 'Potencie su Negocio de Construccion con Santcom',
+            videoText: 'Experimente el poder transformador del analisis predictivo avanzado y Machine Learning para su negocio de construccion. Contactenos para explorar como Santcom puede acelerar sus proyectos y optimizar sus operaciones.',
+            // CTA section
             ctaTitle: 'Listo para Construir de Forma Mas Inteligente?',
             ctaDesc: 'Unase al futuro de la construccion. Nuestra plataforma de analisis impulsada por IA le ayuda a predecir riesgos antes de que se conviertan en problemas, ahorrando tiempo, dinero y recursos en cada proyecto.'
         }
@@ -219,20 +257,19 @@ function initLanguageSwitcher() {
     function setLanguage(lang) {
         const t = translations[lang];
         localStorage.setItem('santcom-lang', lang);
-        
-        // Update nav links
+
+        // Update nav links (now 3 items: Solutions, Vision, Blog)
         const navLinks = document.querySelectorAll('.nav a');
-        if (navLinks.length >= 4) {
+        if (navLinks.length >= 3) {
             navLinks[0].textContent = t.solutions;
             navLinks[1].textContent = t.vision;
-            navLinks[2].textContent = t.programs;
-            navLinks[3].textContent = t.blog;
+            navLinks[2].textContent = t.blog;
         }
-        
+
         // Update header buttons
         const getStartedBtn = document.querySelector('.btn-get-started');
         if (getStartedBtn) getStartedBtn.textContent = t.getStarted;
-        
+
         // Update hero section
         const heroH1 = document.querySelector('.hero-content h1');
         const heroSubtitle = document.querySelector('.hero-subtitle');
@@ -240,7 +277,40 @@ function initLanguageSwitcher() {
         if (heroH1) heroH1.textContent = t.heroTitle;
         if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
         if (heroLearnMore) heroLearnMore.textContent = t.learnMore;
-        
+
+        // Update overlay section (left image with text)
+        const overlayTitle = document.querySelector('.overlay-title');
+        const overlayText = document.querySelector('.overlay-text');
+        if (overlayTitle) overlayTitle.textContent = t.overlayTitle;
+        if (overlayText) overlayText.textContent = t.overlayText;
+
+        // Update feature cards
+        const featureTitle1 = document.querySelector('.feature-title-1');
+        const featureText1 = document.querySelector('.feature-text-1');
+        const featureTitle2 = document.querySelector('.feature-title-2');
+        const featureText2 = document.querySelector('.feature-text-2');
+        const featureTitle3 = document.querySelector('.feature-title-3');
+        const featureText3 = document.querySelector('.feature-text-3');
+        const featureTitle4 = document.querySelector('.feature-title-4');
+        const featureText4 = document.querySelector('.feature-text-4');
+
+        if (featureTitle1) featureTitle1.textContent = t.featureTitle1;
+        if (featureText1) featureText1.textContent = t.featureText1;
+        if (featureTitle2) featureTitle2.textContent = t.featureTitle2;
+        if (featureText2) featureText2.textContent = t.featureText2;
+        if (featureTitle3) featureTitle3.textContent = t.featureTitle3;
+        if (featureText3) featureText3.textContent = t.featureText3;
+        if (featureTitle4) featureTitle4.textContent = t.featureTitle4;
+        if (featureText4) featureText4.textContent = t.featureText4;
+
+        // Update transform section
+        const transformTitle = document.querySelector('.transform-title');
+        const transformText = document.querySelector('.transform-text');
+        const transformBtn = document.querySelector('.transform-btn');
+        if (transformTitle) transformTitle.textContent = t.transformTitle;
+        if (transformText) transformText.textContent = t.transformText;
+        if (transformBtn) transformBtn.textContent = t.learnMore;
+
         // Update stats section
         const statsH2 = document.querySelector('.stats-content h2');
         if (statsH2) statsH2.textContent = t.statsTitle;
@@ -249,11 +319,19 @@ function initLanguageSwitcher() {
         statLabels.forEach((label, index) => {
             if (index < 5) label.textContent = statTexts[index];
         });
-        
+
         // Update partnership section
         const partnerH2 = document.querySelector('.partnership-section h2');
         if (partnerH2) partnerH2.textContent = t.partnersTitle;
-        
+
+        // Update video section
+        const videoTitle = document.querySelector('.video-title');
+        const videoText = document.querySelector('.video-text');
+        const videoBtn = document.querySelector('.video-btn');
+        if (videoTitle) videoTitle.textContent = t.videoTitle;
+        if (videoText) videoText.textContent = t.videoText;
+        if (videoBtn) videoBtn.textContent = t.getStarted;
+
         // Update CTA section
         const ctaH2 = document.querySelector('.cta-section h2');
         const ctaP = document.querySelector('.cta-section p');
@@ -261,7 +339,7 @@ function initLanguageSwitcher() {
         if (ctaH2) ctaH2.textContent = t.ctaTitle;
         if (ctaP) ctaP.textContent = t.ctaDesc;
         if (ctaBtn) ctaBtn.textContent = t.getStarted;
-        
+
         // Update footer
         const footerCols = document.querySelectorAll('.footer-col h4');
         if (footerCols.length >= 3) {
@@ -269,13 +347,13 @@ function initLanguageSwitcher() {
             footerCols[1].textContent = t.resources;
             footerCols[2].textContent = t.subscribe;
         }
-        
+
         const footerH5 = document.querySelector('.social-links h5');
         if (footerH5) footerH5.textContent = t.followUs;
-        
+
         const submitBtn = document.querySelector('.newsletter-form .btn-submit');
         if (submitBtn) submitBtn.textContent = t.submit;
-        
+
         // Update button states
         langEn.classList.toggle('active', lang === 'en');
         langEs.classList.toggle('active', lang === 'es');
